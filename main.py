@@ -16,7 +16,13 @@ class Student(Person):
 
     def describe(self):
         print(f"student id: {self.person_id}, name: {self.name}, major: {self.major}")
-        
+
+    def __str__(self):
+        return f"student id: {self.person_id}, name: {self.name}, major: {self.major}"
+
+
+# Student IS-A Person, so inheritance makes sense because a student
+# has all the basic information of a person plus student-specific data.        
 
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
@@ -24,5 +30,4 @@ student = Student(101, "Lina", "Computer Science")
 person.describe()
 student.describe()
 
-# Student IS-A Person, so inheritance makes sense because a student
-# has all the basic information of a person plus student-specific data.
+print(student)
