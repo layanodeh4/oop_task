@@ -24,6 +24,16 @@ class Student(Person):
 # Student IS-A Person, so inheritance makes sense because a student
 # has all the basic information of a person plus student-specific data.        
 
+class Course:
+    def __init__(self, code, name, seats):
+        self.code = code
+        self.name = name
+        self.seats = seats
+
+    def __str__(self):
+        return f"code: {self.code}, course name: {self.name}, seats: {self.seats}"
+
+
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
 
@@ -31,3 +41,9 @@ person.describe()
 student.describe()
 
 print(student)
+
+course1 = Course("CS101", "Introduction to Programming", 2)
+course2 = Course("DB101", "Introduction to Databases", 3)
+
+print(course1)
+print(course2)
