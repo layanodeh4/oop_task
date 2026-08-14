@@ -51,6 +51,7 @@ class Enrollment:
 
         self.__grade = value
 
+#composition is appropriate because an enrollment connects existing Student and Course objects.
 
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
@@ -70,6 +71,9 @@ enrollment = Enrollment(student, course1, 85)
 
 print(enrollment.grade)
 
-enrollment.grade = 150
+enrollment.grade = 89
 
+print(enrollment.student.name)
+print(enrollment.course.code)
+print(enrollment.grade)
 
