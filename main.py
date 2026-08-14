@@ -34,6 +34,24 @@ class Course:
         return f"code: {self.code}, course name: {self.name}, seats: {self.seats}"
 
 
+class Enrollment:
+    def __init__(self, student, course, grade):
+        self.student = student
+        self.course = course
+        self.__grade = grade
+
+    @property
+    def grade(self):
+        return self.__grade 
+
+    @grade.setter
+    def grade(self, value):
+        if value < 0 or value > 100:
+            raise ValueError("Grade must be between 0 and 100")
+
+        self.__grade = value
+
+
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
 
@@ -47,3 +65,11 @@ course2 = Course("DB101", "Introduction to Databases", 3)
 
 print(course1)
 print(course2)
+
+enrollment = Enrollment(student, course1, 85)
+
+print(enrollment.grade)
+
+enrollment.grade = 150
+
+
