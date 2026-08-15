@@ -146,3 +146,11 @@ for student in registry.students:
 
 with open("students.json", "w") as file:
    json.dump(student_data, file, indent=4)
+
+with open("students.json", "r") as file:
+    loaded_students = json.load(file)
+
+print("\nLoaded students from JSON:")
+
+for student in loaded_students:
+    print(f"ID: {student['person_id']}, Name: {student['name']}, Major: {student['major']}")   
