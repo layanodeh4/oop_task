@@ -38,7 +38,7 @@ class Enrollment:
     def __init__(self, student, course, grade):
         self.student = student
         self.course = course
-        self.__grade = grade
+        self.grade = grade
 
     @property
     def grade(self):
@@ -68,7 +68,8 @@ class Registry:
 
     def enroll_student(self, student, course, grade):
         enrollment = Enrollment(student, course, grade)
-        self.enrollments.append(enrollment)    
+        self.enrollments.append(enrollment)  
+        return enrollment
 
     def show_students(self):
         print("Students")
@@ -84,6 +85,7 @@ class Registry:
         print("Enrollments")
         for e in self.enrollments:
             print(f"{e.student.name} -> {e.course.name} -> Grade: {e.grade}")
+
 
 
 person = Person(100, "Ahmad")
@@ -120,3 +122,16 @@ registry.enroll_student(student, course1, 85)
 registry.show_students()
 registry.show_courses()
 registry.show_enrollments()
+
+
+try:
+    user_input = input("Enter grade: ")
+    grade = int(user_input)
+
+    enrollment = registry.enroll_student(student, course1, grade)
+
+    print("Enrollment created successfully.")
+    print(f"Grade: {enrollment.grade}")
+
+except ValueError as error:
+    print(f"Error: {error}")
