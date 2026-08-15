@@ -72,17 +72,17 @@ class Registry:
         return enrollment
 
     def show_students(self):
-        print("Students")
+        print("\nStudents")
         for s in self.students:
             print(s)
 
     def show_courses(self):
-        print("Courses")
+        print("\nCourses")
         for c in self.courses:
             print(c)
 
     def show_enrollments(self):
-        print("Enrollments")
+        print("\nEnrollments")
         for e in self.enrollments:
             print(f"{e.student.name} -> {e.course.name} -> Grade: {e.grade}")
 
@@ -96,39 +96,37 @@ student.describe()
 
 print(student)
 
-course1 = Course("CS101", "Introduction to Programming", 2)
-course2 = Course("DB101", "Introduction to Databases", 3)
+s1 = Student(102, "ahmad", "AI")
+s2 = Student(103, "leen", "computer science")
+s3 = Student(104, "omar", "AI")
 
-print(course1)
-print(course2)
-
-enrollment = Enrollment(student, course1, 85)
-
-print(enrollment.grade)
-
-enrollment.grade = 89
-
-print(enrollment.student.name)
-print(enrollment.course.code)
-print(enrollment.grade)
+c1 = Course("py110", "python", 4)
+c2 = Course("ml111", "oop", 5)
 
 registry = Registry()
 
-registry.add_student(student)
-registry.add_course(course1)
+registry.add_student(s1)
+registry.add_student(s2)
+registry.add_student(s3)
 
-registry.enroll_student(student, course1, 85)
+registry.add_course(c1)
+registry.add_course(c2)
+
+registry.enroll_student(s1, c1, 77)
+registry.enroll_student(s2, c2, 89)
+registry.enroll_student(s3, c1, 83)
 
 registry.show_students()
 registry.show_courses()
 registry.show_enrollments()
 
 
+
 try:
     user_input = input("Enter grade: ")
     grade = int(user_input)
 
-    enrollment = registry.enroll_student(student, course1, grade)
+    enrollment = registry.enroll_student(s1, c1, grade)
 
     print("Enrollment created successfully.")
     print(f"Grade: {enrollment.grade}")
