@@ -1,3 +1,5 @@
+import json
+
 class Person:
     def __init__(self, person_id, name):
         self.person_id = person_id
@@ -120,8 +122,6 @@ registry.show_students()
 registry.show_courses()
 registry.show_enrollments()
 
-
-
 try:
     user_input = input("Enter grade: ")
     grade = int(user_input)
@@ -133,3 +133,16 @@ try:
 
 except ValueError as error:
     print(f"Error: {error}")
+
+
+student_data = []
+
+for student in registry.students:
+    student_data.append({
+        "person_id": student.person_id,
+        "name": student.name,
+        "major": student.major
+    })
+
+with open("students.json", "w") as file:
+   json.dump(student_data, file, indent=4)

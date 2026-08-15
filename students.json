@@ -1,0 +1,17 @@
+[
+    {
+        "person_id": 102,
+        "name": "ahmad",
+        "major": "AI"
+    },
+    {
+        "person_id": 103,
+        "name": "leen",
+        "major": "computer science"
+    },
+    {
+        "person_id": 104,
+        "name": "omar",
+        "major": "AI"
+    }
+]
