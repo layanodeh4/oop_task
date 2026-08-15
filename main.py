@@ -53,6 +53,39 @@ class Enrollment:
 
 #composition is appropriate because an enrollment connects existing Student and Course objects.
 
+
+class Registry:
+    def __init__(self):
+        self.students = []
+        self.courses = []
+        self.enrollments = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def add_course(self, course):
+        self.courses.append(course)
+
+    def enroll_student(self, student, course, grade):
+        enrollment = Enrollment(student, course, grade)
+        self.enrollments.append(enrollment)    
+
+    def show_students(self):
+        print("Students")
+        for s in self.students:
+            print(s)
+
+    def show_courses(self):
+        print("Courses")
+        for c in self.courses:
+            print(c)
+
+    def show_enrollments(self):
+        print("Enrollments")
+        for e in self.enrollments:
+            print(f"{e.student.name} -> {e.course.name} -> Grade: {e.grade}")
+
+
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
 
@@ -77,3 +110,13 @@ print(enrollment.student.name)
 print(enrollment.course.code)
 print(enrollment.grade)
 
+registry = Registry()
+
+registry.add_student(student)
+registry.add_course(course1)
+
+registry.enroll_student(student, course1, 85)
+
+registry.show_students()
+registry.show_courses()
+registry.show_enrollments()
